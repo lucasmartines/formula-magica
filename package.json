@@ -1,0 +1,25 @@
+{
+  "name": "formula-magica-br",
+  "version": "1.0.0",
+  "description": "",
+  "main": "index.js",
+  "scripts": {
+    "serve": " node ./src/index.js",
+    "prod": "pm2 start ./src/index.js --name formula-magica",
+    "stop": " pm2 stop formula-magica",
+    "webpack": "webpack"
+  },
+  "author": "",
+  "license": "ISC",
+  "dependencies": {
+    "cheerio": "^1.0.0-rc.3",
+    "cors": "^2.8.5",
+    "crawler": "^1.2.2",
+    "request": "^2.88.2"
+  },
+  "devDependencies": {
+    "express": "^4.17.1",
+    "webpack": "^4.44.2",
+    "webpack-cli": "^3.3.12"
+  }
+}

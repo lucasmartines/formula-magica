@@ -1,0 +1,81 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <link rel="stylesheet" href="/style.css" >
+</head>
+<body>
+
+    <header>
+        
+        <h1>
+            
+            <span class="sub-title"> Criada por Joel Greenblat</span> <br/>
+            Fórmula Magica <br/>
+            <span class="sub-title" style="font-size: 12px;padding-top:5px;text-transform: lowercase;"> Dados Estraídos do site fundamentos por Web Crawler! </span>
+        </h1>
+        
+
+    </header>
+    <main>
+        <table>
+            <thead>
+                <th>Posição</th>
+                
+                <th>nome</th>
+                <th>Cotação</th>
+                <!-- <th>DivLiq/Patr.Liq</th> -->
+                <th>EV/Ebit</th>
+                <th>Roic</th>
+                <th>P/L</th>
+                <th>P/VPA</th>
+                <th>div.Liq/PatrLiq</th>
+                <th>Liq. Bimestral</th>
+                <th>Patrimônio Liquido</th>
+            </thead>
+            <tbody id="showData">
+                
+            </tbody>
+        </table>
+    </main>
+    <script>
+         let url = "market.json"
+         let serverURL = "http://localhost:3000/api/ranking/magic"
+
+         
+            fetch(serverURL )
+            .then( d => {
+               
+                return d.json()
+            })
+            .then( d => {
+                let posicao = 0;
+
+                d.forEach( e => {
+                
+                    posicao ++;
+                    document.querySelector("#showData").innerHTML += 
+                        "<tr>"
+                            +`<td> ${posicao} </td>`
+                            +`<td> ${e.nome} </td> `
+                            +`<td> R$${e.cotacao} </td> `
+                            // +`<td> ${e.divLiq_PatrLiq} </td> `
+                            +`<td> ${e.ev_Ebit} </td> `
+                            +`<td> ${e.roicAmount}% </td> `
+                            +`<td> ${e.pl}</td> `
+                            +`<td> ${e.pVpa}</td> `
+                            +`<td> ${e.divLiq_PatrLiq } </td/>`
+                            +`<td> ${e.liquidacaoBimestral } </td/>`
+                            +`<td> ${e.patrimonioLiquido } </td/>`
+                        + "</tr>"
+                })
+            } )
+
+    </script>
+
+
+     
+</body>
+</html>
