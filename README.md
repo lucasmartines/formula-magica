@@ -26,11 +26,25 @@ npm run serve
 
 ## Como funciona?
 
-O script src/geradorGrahamRanking/generateGrahan.js cria um JSON e o coloca src/public/json/acoes_graham.json
+```
+Para rodar o script de graham formula-magica no terminal execute ->
+node src/geradorGrahamRanking/generateGrahan.js
 
-O script src/geradorRankingFormMagica/generateMagicFormula.js cria um JSOn e o coloca /_developer/web/fundamentusSteal/src/public/json/new.acoes_graham.json
+O script src/geradorGrahamRanking/generateGrahan.js cria um JSON e o coloca src/public/json/acoes_graham.json
+```
+
+
+``` 
+Para rodar o script de greenblat execute ->
+node src/geradorRankingFormMagica/generateMagicFormula.js 
+
+O script src/geradorRankingFormMagica/generateMagicFormula.js cria um JSOn e o coloca /src/public/json/new.acoes_graham.json
+```
 
 Assim os sites html acessam esses json e disponibilizam online
+# Rotas
+#### "/" magic formula ranking 
+#### "/graham" graham ranking
 
 ## Tecnologías
     Node
