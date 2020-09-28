@@ -2,10 +2,10 @@
   "name": "formula-magica-br",
   "version": "1.0.0",
   "description": "",
-  "main": "index.js",
+  "main": "app.js",
   "scripts": {
-    "serve": " node ./src/index.js",
-    "prod": "pm2 start ./src/index.js --name formula-magica",
+    "serve": " node ./src/app.js",
+    "prod": "pm2 start ./src/app.js --name formula-magica",
     "stop": " pm2 stop formula-magica",
     "webpack": "webpack"
   },
@@ -15,7 +15,9 @@
     "cheerio": "^1.0.0-rc.3",
     "cors": "^2.8.5",
     "crawler": "^1.2.2",
-    "request": "^2.88.2"
+    "request": "^2.88.2",
+    "axios": "^0.20.0",    
+    "slugify": "^1.4.5"
   },
   "devDependencies": {
     "express": "^4.17.1",

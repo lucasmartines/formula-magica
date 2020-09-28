@@ -1,4 +1,4 @@
-const {getDataMaginFormula}  = require ( "./geradorRanking" )
+const {getDataMaginFormula}  = require ( "./geradorRankingFormMagica/magicAlg.js" )
 var cors = require('cors');
 
 
@@ -16,6 +16,8 @@ app.get('/api/ranking/magic', function (req, res) {
 app.use( express.static(__dirname + '/public'));
 
 
-app.use('/', (req,res) => res.sendFile( __dirname + "/public/index.html" ))
+app.use('/graham', (req,res) => res.sendFile( __dirname + "/public/grahan_formula.html" ))
+app.use('/', (req,res) => res.sendFile( __dirname + "/public/magic_formula.html" ))
+
 
 app.listen(3000 , () => console.log("Rodando... localhost:3000"))

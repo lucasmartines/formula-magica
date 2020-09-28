@@ -1,4 +1,4 @@
-# Fórmula Magica Joel Greenblat para ações brasileiras
+# Fórmula Magica Joel Greenblat + Benjamin Grahan para ações brasileiras
 
 ![](https://zgrp9w.bl.files.1drv.com/y4mPw_sPsbnqnP9Oh44IyUz2PHmECeUKpzRsq624kJdsm_lkeKuSO8x5cyXYeLNoIDEuATeBrOOnZ8s-mlc3TNMfZMUER0TRRoN7RLTguPAlGNqyT8vu23R5-c_rIQYmg3VhbDA-sWHs8bq9L9q84LNmLwzz1y39bPvxfAcmcfvdm5mb8DixzEoRfDBDOqfvfHzFmyAAAYH4AhEnxQ0ypBaNg?width=1024&height=467&cropmode=none)
 
@@ -24,21 +24,13 @@ npm install
 npm run serve
 ```
 
-### Para rodar em um servidor de produção
-```
-npm run prod
-```
-
-### Para parar no servidor de produção
-```
-npm run stop
-```
 ## Como funciona?
-Basicamente o software faz web scralping ou seja ela vai no site fundamentos e pega os dados base de lá.
-Depois os dados são expostos em uma api na rota
-```
-/api/ranking/magic
-```
+
+O script src/geradorGrahamRanking/generateGrahan.js cria um JSON e o coloca src/public/json/acoes_graham.json
+
+O script src/geradorRankingFormMagica/generateMagicFormula.js cria um JSOn e o coloca /_developer/web/fundamentusSteal/src/public/json/new.acoes_graham.json
+
+Assim os sites html acessam esses json e disponibilizam online
 
 ## Tecnologías
     Node

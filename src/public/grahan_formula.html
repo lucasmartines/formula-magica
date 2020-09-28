@@ -1,0 +1,107 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Graham Formula</title>
+    <link rel="stylesheet" href="/style.css" >
+</head>
+<body>
+
+    <header>
+        
+        <h1>
+            
+            <span class="sub-title"> Criada por BenjaminGrahan</span> <br/>
+            Análise de Segurança <br/>
+            <span class="sub-title" style="font-size: 12px;padding-top:5px;text-transform: lowercase;"> 
+                Dados Estraídos do site fundamentos por Web Crawler, em minha casa, infelismente esse webcraler não funcionou
+                no aws por motívos de bloqueio 403! 
+                <a href="/" style="color: white;">Conheça também o ranking da formula Mágica</a>
+            </span>
+        </h1>
+        
+
+    </header>
+    <main>
+        <table>
+            <thead>
+                <th>Posição</th>
+                
+                <th>nome</th>
+                <th>Cotação</th>
+                <!-- <th>DivLiq/Patr.Liq</th> -->
+                <th>P/L</th>
+                <th>P/VPA</th>
+                <th>LPA</th>
+                <th>Valor Justo</th>
+                <th>Margem de Segurança</th>
+                <th> Possibilidade de ganho </th>
+                <th> Setor</th>
+                <!-- <th>div.Liq/PatrLiq</th> -->
+                <!-- <th>Liq. Bimestral</th> -->
+            </thead>
+            <tbody id="showData">
+                
+            </tbody>
+        </table>
+    </main>
+    <script>
+        let url =  "json/acoes_graham.json"
+        
+        let allAcoes = []
+
+        console.log( url )
+         
+            fetch(url )
+            .then( d => {
+               
+                return d.json()
+            })
+            .then( d => {
+                let posicao = 0;
+
+                d.forEach( e => {
+                    
+                    posicao ++;
+                    e.posicao = posicao
+                    allAcoes.push( e )
+                })
+            } )
+            .then( () => {
+                createTable( allAcoes );
+            })
+
+
+
+            const createTable = (allAcoes) => 
+            {
+
+                allAcoes.forEach( e => {
+                document.querySelector("#showData").innerHTML += 
+                    "<tr>"
+                        +`<td> ${e.posicao} </td>`
+                        +`<td> ${e.papel} </td> `
+                        +`<td> R$${e.cotao} </td> `
+                        // +`<td> ${e.divLiq_PatrLiq} </td> `
+                        +`<td> ${e.pl}</td> `
+                        +`<td> ${e.pvp}</td> `
+                        +`<td> ${e.lpa}</td> `
+                        +`<td> R$${e.valor_justo.toFixed(2)}</td> `
+                        +`<td> ${e.margemSeg}%</td> `
+                        +`<td> ${e.possibilidadeGanho}</td> `
+                        +`<td> ${e.setor}</td> `
+                        // +`<td> ${e.dv_lquida } </td/>`
+                        // +`<td> ${e.liquidacaoBimestral } </td/>`
+                    + "</tr>"
+                })
+            }
+
+
+        
+    </script>
+
+
+     
+</body>
+</html>
