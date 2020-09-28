@@ -24,21 +24,13 @@ npm install
 npm run serve
 ```
 
-### Para rodar em um servidor de produção
-```
-npm run prod
-```
-
-### Para parar no servidor de produção
-```
-npm run stop
-```
 ## Como funciona?
-Basicamente o software faz web scralping ou seja ela vai no site fundamentos e pega os dados base de lá.
-Depois os dados são expostos em uma api na rota
-```
-/api/ranking/magic
-```
+
+O script src/geradorGrahamRanking/generateGrahan.js cria um JSON e o coloca src/public/json/acoes_graham.json
+
+O script src/geradorRankingFormMagica/generateMagicFormula.js cria um JSOn e o coloca /_developer/web/fundamentusSteal/src/public/json/new.acoes_graham.json
+
+Assim os sites html acessam esses json e disponibilizam online
 
 ## Tecnologías
     Node

@@ -6,7 +6,7 @@ let data = require("./config")
 
 
 function filterToFloat(number) {
-  let temp = number.replace(".","").replace(",", ".").replace("%", "");
+  let temp = number.replace(/\./g,"").replace(",", ".").replace("%", "");
 
   if( isNaN ( +temp ) ) {
     return 0
@@ -26,7 +26,8 @@ function getDataFromHtmlTableRow(ativoTR) {
   let pVpa       = filterToFloat($(TDhtmlChildren[3]).text())
 
 
-  let liquidacaoBimestral = filterToFloat ( $(TDhtmlChildren[17] ).text() )
+  let liquidacaoBimestral =  $(TDhtmlChildren[17] ).text() 
+  
   let patrimonioLiquido =  $(TDhtmlChildren[18] ).text() 
  
   let roicAmount =    filterToFloat($(TDhtmlChildren[15]).text())
@@ -89,7 +90,11 @@ function ranquearPorEarningYield(listAcoes){
   }  
 }
 
-
+function filtrarPorQtdVendasEmDollarEm2Meses(listAcoes){
+  
+  listAcoes = listAcoes.filter( i => filterToFloat( i.liquidacaoBimestral ) >= ( data.data.liq_min || 0 ))
+  return listAcoes
+}
 function formulaMagicaGenerator( $ , callback ){
 
   let listAcoes = []
@@ -119,9 +124,11 @@ function formulaMagicaGenerator( $ , callback ){
       // rankear melhores ações e mais baratas      
       listAcoes.sort( sortEarningYield )
 
+      filtrarPorQtdVendasEmDollarEm2Meses( listAcoes )
+
       // limpar dados inconsistences
 
-       listAcoes = listAcoes.filter( i => i.liquidacaoBimestral >= ( data.data.liq_min || 0 ))
+
        listAcoes = listAcoes.filter( i => i.ev_Ebit > 0 && i.roicAmount >= ( data.data.roic_min || 0 )  )
       
     }
