@@ -1,7 +1,7 @@
-const axios = require("axios")
+const axios = require("node_modules/axios")
 const cherio = require("cheerio")
 const fs = require("fs")
-var slugify = require('slugify')
+var slugify = require('node_modules/slugify')
 let filtro = require("./filtro.js")
 
 let jsonPath = __dirname+"/../public/json/new."
@@ -71,7 +71,7 @@ const slugConfig  = {
 }
 
 
-async function toNumber (value) 
+function toNumber (value) 
 {
 
     if( !isNaN(value ) ){ // is number

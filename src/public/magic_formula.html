@@ -37,6 +37,7 @@
                 <th>div.Liq/PatrLiq</th>
                 <th>Liq. Bimestral</th>
                 <th>Patrimônio Liquido</th>
+                <th>Setor</th>
              </thead>
             <tbody id="showData">
                 
@@ -46,7 +47,7 @@
     <script>
          let url = "market.json"
         //  let serverURL = "http://localhost:3000/api/ranking/magic"
-            let serverURL = "/json/acoes_magic.json"
+            let serverURL = "/json/new.acoes_magic.json"
          
             fetch( serverURL )
             .then( d => {
@@ -62,17 +63,17 @@
                     document.querySelector("#showData").innerHTML += 
                         "<tr>"
                             +`<td> ${posicao} </td>`
-                            +`<td> ${e.nome} </td> `
+                            +`<td> ${e.papel} </td> `
                             +`<td> R$${e.cotacao} </td> `
                             // +`<td> ${e.divLiq_PatrLiq} </td> `
-                            +`<td> ${e.ev_Ebit} </td> `
-                            +`<td> ${e.roicAmount}% </td> `
+                            +`<td> ${e.ev_ebit} </td> `
+                            +`<td> ${e.roic} </td> `
                             +`<td> ${e.pl}</td> `
-                            +`<td> ${e.pVpa}</td> `
-                            +`<td> ${e.divLiq_PatrLiq } </td/>`
-                            +`<td> ${e.liquidacaoBimestral } </td/>`
-                            +`<td> ${e.patrimonioLiquido } </td/>`
-                                 
+                            +`<td> ${e.pvp}</td> `
+                            +`<td> ${e.div_br_patrim } </td/>`
+                            +`<td> ${e.vol_dollar_md_2m } </td/>`
+                            +`<td> ${e.patrim_liq } </td/>`
+                            +`<td> ${e.setor } </td/>` 
                         + "</tr>"
                 })
             } )

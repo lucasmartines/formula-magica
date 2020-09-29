@@ -38,7 +38,7 @@ O script src/geradorGrahamRanking/generateGrahan.js cria um JSON e o coloca src/
 Para rodar o script de greenblat execute ->
 node src/geradorRankingFormMagica/generateMagicFormula.js 
 
-O script src/geradorRankingFormMagica/generateMagicFormula.js cria um JSOn e o coloca /src/public/json/new.acoes_graham.json
+O script src/geradorGrahamRanking/generateGraham.js cria um JSON e o coloca /src/public/json/new.acoes_graham.json
 ```
 
 Assim os sites html acessam esses json e disponibilizam online

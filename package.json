@@ -12,11 +12,12 @@
   "author": "",
   "license": "ISC",
   "dependencies": {
+    "axios": "^0.20.0",
     "cheerio": "^1.0.0-rc.3",
     "cors": "^2.8.5",
     "crawler": "^1.2.2",
+    "lodash": "^4.17.20",
     "request": "^2.88.2",
-    "axios": "^0.20.0",    
     "slugify": "^1.4.5"
   },
   "devDependencies": {

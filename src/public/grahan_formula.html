@@ -34,6 +34,9 @@
                 <th>P/L</th>
                 <th>P/VPA</th>
                 <th>LPA</th>
+                <th>ROE</th>
+                <th>ROIC</th>
+                <th>Ev/Ebit</th>
                 <th>Valor Justo</th>
                 <th>Margem de Segurança</th>
                 <th> Possibilidade de ganho </th>
@@ -78,23 +81,30 @@
             {
 
                 allAcoes.forEach( e => {
-                document.querySelector("#showData").innerHTML += 
-                    "<tr>"
-                        +`<td> ${e.posicao} </td>`
-                        +`<td> ${e.papel} </td> `
-                        +`<td> R$${e.cotao} </td> `
-                        // +`<td> ${e.divLiq_PatrLiq} </td> `
-                        +`<td> ${e.pl}</td> `
-                        +`<td> ${e.pvp}</td> `
-                        +`<td> ${e.lpa}</td> `
-                        +`<td> R$${e.valor_justo.toFixed(2)}</td> `
-                        +`<td> ${e.margemSeg}%</td> `
-                        +`<td> ${e.possibilidadeGanho}</td> `
-                        +`<td> ${e.setor}</td> `
-                        // +`<td> ${e.dv_lquida } </td/>`
-                        // +`<td> ${e.liquidacaoBimestral } </td/>`
-                    + "</tr>"
-                })
+
+                    
+                    document.querySelector("#showData").innerHTML += 
+                        "<tr>"
+                            +`<td> ${e.posicao} </td>`
+                            +`<td> ${e.papel} </td> `
+                            +`<td> R$${e.cotao} </td> `
+                            // +`<td> ${e.divLiq_PatrLiq} </td> `
+                            +`<td> ${e.pl}</td> `
+                            +`<td> ${e.pvp}</td> `
+                            +`<td> ${e.lpa}</td> `
+                            +`<td> ${e.roe}</td> `
+                            +`<td> ${e.roic}</td> `
+                            +`<td> ${e.ev_ebit}</td> `
+                            +`<td> R$${e.valor_justo.toFixed(2)}</td> `
+                            +`<td> ${e.margemSeg}%</td> `
+                            +`<td> ${e.possibilidadeGanho}</td> `
+                            +`<td> ${e.setor}</td> `
+                            // +`<td> ${e.dv_lquida } </td/>`
+                            // +`<td> ${e.liquidacaoBimestral } </td/>`
+                        + "</tr>"
+                    })
+
+ 
             }
 
 
